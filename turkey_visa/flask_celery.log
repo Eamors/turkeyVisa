@@ -1,0 +1,1376 @@
+2020-07-09 13:21:09,008 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 13:27:39,398 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 13:31:04,838 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 13:37:05,005 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisa²éÑ¯ÇëÇó¡£
+²ÎÊý£º{
+  "company_type": 1,
+  "company_code": "260b7b37dd4de97b9f762825ad82823a",
+  "secret_key": "6f04aa1004e7dffbe632615539887f86",
+  "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+  "spdier_name": "turkey_visa",
+  "visa_data": {
+    "option": "query",
+    "account": {
+        "passportNumber": "G61861928",
+        "email": "travel3@ybas.com.cn"
+    },
+    "extra": {}
+  }
+}
+2020-07-09 13:37:05,090 - flask_celery - ERROR - Exception on /turkey/CheckVisaStatus [POST]
+Traceback (most recent call last):
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\utils\functional.py", line 42, in __call__
+    return self.__value__
+AttributeError: 'ChannelPromise' object has no attribute '__value__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\virtual\base.py", line 921, in create_channel
+    return self._avail_channels.pop()
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\utils\objects.py", line 42, in __get__
+    return obj.__dict__[self.__name__]
+KeyError: 'client'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\redis.py", line 874, in _prepare_virtual_host
+    vhost = int(vhost)
+ValueError: invalid literal for int() with base 10: '5turkey_spider'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\MACHENIKE\Desktop\turkey_visa\re_main.py", line 56, in CheckVisaStatus
+    save_task(Cache, turkey_spider, url_name, params)
+  File "<C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\decorator.py:decorator-gen-4>", line 2, in save_task
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\retry\api.py", line 74, in retry_decorator
+    logger)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\retry\api.py", line 33, in __retry_internal
+    return f()
+  File "C:\Users\MACHENIKE\Desktop\turkey_visa\retry_work.py", line 14, in save_task
+    func_name.delay(url_name, params)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\celery\app\task.py", line 427, in delay
+    return self.apply_async(args, kwargs)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\celery\app\task.py", line 570, in apply_async
+    **options
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\celery\app\base.py", line 756, in send_task
+    amqp.send_task_message(P, name, message, **options)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\celery\app\amqp.py", line 552, in send_task_message
+    **properties
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\messaging.py", line 181, in publish
+    exchange_name, declare,
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\connection.py", line 510, in _ensured
+    return fun(*args, **kwargs)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\messaging.py", line 187, in _publish
+    channel = self.channel
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\messaging.py", line 209, in _get_channel
+    channel = self._channel = channel()
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\utils\functional.py", line 44, in __call__
+    value = self.__value__ = self.__contract__()
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\messaging.py", line 224, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\connection.py", line 852, in default_channel
+    self.ensure_connection(**conn_opts)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\connection.py", line 422, in ensure_connection
+    callback, timeout=timeout)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\utils\functional.py", line 341, in retry_over_time
+    return fun(*args, **kwargs)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\connection.py", line 275, in connect
+    return self.connection
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\connection.py", line 823, in connection
+    self._connection = self._establish_connection()
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\connection.py", line 778, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\virtual\base.py", line 941, in establish_connection
+    self._avail_channels.append(self.create_channel(self))
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\virtual\base.py", line 923, in create_channel
+    channel = self.Channel(connection)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\redis.py", line 513, in __init__
+    self.client.ping()
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\utils\objects.py", line 44, in __get__
+    value = obj.__dict__[self.__name__] = self.__get(obj)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\redis.py", line 982, in client
+    return self._create_client(asynchronous=True)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\redis.py", line 945, in _create_client
+    return self.Client(connection_pool=self.async_pool)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\redis.py", line 976, in async_pool
+    self._async_pool = self._get_pool(asynchronous=True)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\redis.py", line 949, in _get_pool
+    params = self._connparams(asynchronous=asynchronous)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\redis.py", line 924, in _connparams
+    connparams.pop('virtual_host', None))
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\kombu\transport\redis.py", line 878, in _prepare_virtual_host
+    vhost,
+ValueError: Database is int between 0 and limit - 1, not 5turkey_spider
+2020-07-09 13:37:05,138 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 13:37:05] "[1m[35mPOST /turkey/CheckVisaStatus HTTP/1.1[0m" 500 -
+2020-07-09 13:37:41,943 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 13:37:46,191 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisa²éÑ¯ÇëÇó¡£
+²ÎÊý£º{
+  "company_type": 1,
+  "company_code": "260b7b37dd4de97b9f762825ad82823a",
+  "secret_key": "6f04aa1004e7dffbe632615539887f86",
+  "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+  "spdier_name": "turkey_visa",
+  "visa_data": {
+    "option": "query",
+    "account": {
+        "passportNumber": "G61861928",
+        "email": "travel3@ybas.com.cn"
+    },
+    "extra": {}
+  }
+}
+2020-07-09 13:37:46,262 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 13:37:46] "[37mPOST /turkey/CheckVisaStatus HTTP/1.1[0m" 200 -
+2020-07-09 14:14:29,754 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô172.100.8.48µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{"company_type":"1","secret_key":"6f04aa1004e7dffbe632615539887f86","user_code":"1141200709108102","company_code":"260b7b37dd4de97b9f762825ad82823a","visa_data":{"country":"CHN","extra":{"visaOrderId":7341},"personals":[{"place_of_birth":"HEBEI","firstname":"YUFEI","birthdate":"1996-10-15","phoneNumber":"18758232332","travel_no":"EG4650943","travel_issue_date":"2019-07-08","father_name":"","mother_name":"","familyname":"MIAO","travel_expiry_date":"2029-07-07","contact_address":"DSDADADAD","email":"wangss@qq.com"}],"travel_date":1594310400000,"option":"submit","certificateType":"1"},"spdier_name":"turkey_visa"}
+2020-07-09 14:14:29,760 - werkzeug - INFO - 172.100.8.48 - - [09/Jul/2020 14:14:29] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:19:46,480 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 14:23:31,198 - werkzeug - INFO - 172.100.8.48 - - [09/Jul/2020 14:23:31] "[37mGET /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:23:31,347 - werkzeug - INFO - 172.100.8.48 - - [09/Jul/2020 14:23:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2020-07-09 14:31:17,866 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 14:31:27,228 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:32:16,157 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 14:32:24,269 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:32:24,325 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 14:32:24] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:35:57,660 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô172.100.8.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{"company_type":"1","secret_key":"6f04aa1004e7dffbe632615539887f86","user_code":"1141200709108103","company_code":"260b7b37dd4de97b9f762825ad82823a","visa_data":{"country":"TWN","extra":{"visaOrderId":7342},"personals":[{"place_of_birth":"GUANGXI","firstname":"MENGYUAN","birthdate":"2013-10-17","phoneNumber":"18768323122","travel_no":"E85157846","travel_issue_date":"2016-08-17","father_name":"","mother_name":"","familyname":"HE","travel_expiry_date":"2021-08-16","contact_address":"csvsdfas","email":"wangss@qq.com"}],"travel_date":"2020-07-11","option":"submit","certificateType":"1"},"spdier_name":"turkey_visa"}
+2020-07-09 14:35:57,679 - werkzeug - INFO - 172.100.8.1 - - [09/Jul/2020 14:35:57] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:43:35,852 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:43:35,863 - flask_celery - INFO - Êý¾ÝÔÚ»º´æ¶ÓÁÐÖÐ£¬Ö±½Ó·µ»Ø£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:43:35,869 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 14:43:35] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:44:27,867 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:44:27,877 - flask_celery - INFO - Êý¾ÝÔÚ»º´æ¶ÓÁÐÖÐ£¬Ö±½Ó·µ»Ø£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:44:27,885 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 14:44:27] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:44:48,084 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 14:45:05,634 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:45:05,650 - flask_celery - INFO - Êý¾ÝÔÚ»º´æ¶ÓÁÐÖÐ£¬Ö±½Ó·µ»Ø£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:45:05,661 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 14:45:05] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:46:19,908 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 14:46:37,415 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:46:37,424 - flask_celery - INFO - Êý¾ÝÔÚ»º´æ¶ÓÁÐÖÐ£¬Ö±½Ó·µ»Ø£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:46:37,431 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 14:46:37] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:47:35,236 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:47:35,250 - flask_celery - INFO - Êý¾ÝÔÚ»º´æ¶ÓÁÐÖÐ£¬Ö±½Ó·µ»Ø£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-12",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:47:35,259 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 14:47:35] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:47:59,019 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:47:59,066 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 14:47:59] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:50:41,772 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-09 14:50:56,765 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:50:56,782 - flask_celery - INFO - Êý¾ÝÔÚ»º´æ¶ÓÁÐÖÐ£¬Ö±½Ó·µ»Ø£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-14",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:50:56,791 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 14:50:56] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:51:28,767 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 14:51:29,121 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 14:51:29] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 14:51:52,199 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô172.100.8.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{"company_type":"1","secret_key":"6f04aa1004e7dffbe632615539887f86","user_code":"1141200709108107","company_code":"260b7b37dd4de97b9f762825ad82823a","visa_data":{"country":"CHN","extra":{"visaOrderId":7346},"personals":[{"place_of_birth":"JIANGXI","firstname":"GUIXIANG","birthdate":"1974-07-07","phoneNumber":"18143441550","travel_no":"EC8852353","travel_issue_date":"2018-04-20","father_name":"","mother_name":"","familyname":"YAO","travel_expiry_date":"2028-04-19","contact_address":"Hangzhou","email":"251509886@qq.com"},{"place_of_birth":"JIANGXI","firstname":"ZHIFANG","birthdate":"1974-03-28","phoneNumber":"18143441550","travel_no":"EC8842898","travel_issue_date":"2018-04-18","father_name":"","mother_name":"","familyname":"WANG","travel_expiry_date":"2028-04-17","contact_address":"Hangzhou","email":"251509886@qq.com"}],"travel_date":"2020-07-30","option":"submit","certificateType":"1"},"spdier_name":"turkey_visa"}
+2020-07-09 14:51:52,266 - werkzeug - INFO - 172.100.8.1 - - [09/Jul/2020 14:51:52] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 15:02:25,411 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô172.100.8.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{"company_type":"1","secret_key":"6f04aa1004e7dffbe632615539887f86","user_code":"1141200709108106","company_code":"260b7b37dd4de97b9f762825ad82823a","visa_data":{"country":"CHN","extra":{"visaOrderId":7345},"personals":[{"place_of_birth":"TIANJIN","firstname":"YI","birthdate":"1982-08-02","phoneNumber":"18668150836","travel_no":"E31685074","travel_issue_date":"2013-11-01","father_name":"","mother_name":"","familyname":"HU","travel_expiry_date":"2023-10-31","contact_address":"werwerewrewrewttsdfdsfds","email":"lxd406gaohe@163.com"},{"place_of_birth":"SHANGHAI","firstname":"YUE","birthdate":"2016-03-08","phoneNumber":"135433333333","travel_no":"EF9016989","travel_issue_date":"2019-04-08","father_name":"","mother_name":"","familyname":"LI","travel_expiry_date":"2024-04-07","contact_address":"werwerewrewrewttsdfdsfds","email":"lxd406gaohe@163.com"}],"travel_date":"2020-07-23","option":"submit","certificateType":"1"},"spdier_name":"turkey_visa"}
+2020-07-09 15:02:25,467 - werkzeug - INFO - 172.100.8.1 - - [09/Jul/2020 15:02:25] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 15:39:56,857 - werkzeug - INFO - 172.100.8.48 - - [09/Jul/2020 15:39:56] "[33mPOST /turkey/checkVisaStatus HTTP/1.1[0m" 404 -
+2020-07-09 15:45:08,197 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô172.100.8.48µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{"company_type":"1","secret_key":"6f04aa1004e7dffbe632615539887f86","user_code":"1141200709108109","company_code":"260b7b37dd4de97b9f762825ad82823a","visa_data":{"country":"CHN","extra":{"visaOrderId":7348},"personals":[{"place_of_birth":"JIANGXI","firstname":"JIACHANG","birthdate":"1972-03-11","phoneNumber":"18143441550","travel_no":"E18373638","travel_issue_date":"2014-06-24","father_name":"","mother_name":"","familyname":"LIU","travel_expiry_date":"2024-06-23","contact_address":"shanhai","email":"251509886@qq.com"}],"travel_date":"2020-07-23","option":"submit","certificateType":"1"},"spdier_name":"turkey_visa"}
+2020-07-09 15:45:08,251 - werkzeug - INFO - 172.100.8.48 - - [09/Jul/2020 15:45:08] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-09 16:08:51,112 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-09 16:08:51,171 - werkzeug - INFO - 127.0.0.1 - - [09/Jul/2020 16:08:51] "[37mPOST /turkey/submit HTTP/1.1[0m" 200 -
+2020-07-13 09:59:15,569 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-13 10:02:13,845 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-13 10:11:22,063 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-13 10:12:10,976 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-13 10:14:36,887 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-13 10:14:46,736 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-13 10:16:37,349 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-13 10:16:51,191 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-13 10:21:53,280 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-13 10:21:56,175 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-13 10:28:48,500 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-13 10:29:47,474 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-13 10:32:16,570 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-13 10:33:04,194 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-13 10:36:46,620 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-13 10:36:51,637 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
+2020-07-13 10:36:51,675 - flask_celery - ERROR - Exception on /turkey/submit [POST]
+Traceback (most recent call last):
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\MACHENIKE\Desktop\turkey_visa\re_main.py", line 104, in turkeyVisa
+    save_task(Cache, turkey_spider, url_name, params)
+  File "<C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\decorator.py:decorator-gen-4>", line 2, in save_task
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\retry\api.py", line 74, in retry_decorator
+    logger)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\retry\api.py", line 33, in __retry_internal
+    return f()
+  File "C:\Users\MACHENIKE\Desktop\turkey_visa\retry_work.py", line 18, in save_task
+    func_name.apply_async(url_name, params)
+  File "C:\Users\MACHENIKE\AppData\Local\Programs\Python\Python36\lib\site-packages\celery\app\task.py", line 532, in apply_async
+    check_arguments(*(args or ()), **(kwargs or {}))
+TypeError: turkey_spider() argument after ** must be a mapping, not str
+2020-07-13 10:36:51,696 - werkzeug - INFO - 127.0.0.1 - - [13/Jul/2020 10:36:51] "[1m[35mPOST /turkey/submit HTTP/1.1[0m" 500 -
+2020-07-13 10:37:35,471 - werkzeug - INFO -  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+2020-07-13 10:37:37,734 - flask_celery - INFO - ½ÓÊÜµ½À´×Ô127.0.0.1µÄÍÁ¶úÆäµÄvisaÌá½»ÇëÇó¡£
+²ÎÊý£º{
+      "company_type": 1,
+      "company_code": "260b7b37dd4de97b9f762825ad82823a",
+      "secret_key": "6f04aa1004e7dffbe632615539887f86",
+      "user_code": "c4ca4238a0b923820dcc509a6f75849b",
+      "spdier_name": "turkey_visa",
+      "visa_data": {
+        "option": "submit",
+        "country":"CHN",
+        "travel_date":"2020-09-11",
+        "certificateType":"1",
+    "personals": [
+      {
+        "firstname": "mingming",
+        "familyname": "wang",
+        "birthdate": "1992-10-12",
+        "place_of_birth": "hangzhou",
+        "mother_name": "monther",
+        "father_name": "father",
+        "travel_no": "EA888855",
+        "travel_issue_date":"2016-10-16",
+        "travel_expiry_date": "2026-10-15",
+        "email":"lc2224268262@163.com",
+        "phoneNumber": "15855558888",
+        "contact_address": "hangzhoushi"
+      },
+        {
+            "firstname": "mingtian",
+            "familyname": "wang",
+            "birthdate": "1991-10-11",
+            "place_of_birth": "hangzhou",
+            "mother_name": "assdasdf",
+            "father_name": "fatsdgfdgher",
+            "travel_no": "EA884455",
+            "travel_issue_date": "2017-10-14",
+            "travel_expiry_date": "2027-10-15",
+            "email": "lc2224268262@163.com",
+            "phoneNumber": "15855558888",
+            "contact_address": "hangzhoushi"
+        }
+    ],
+    "extra": {}
+  }
+}
